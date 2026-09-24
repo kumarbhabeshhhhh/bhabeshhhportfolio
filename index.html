@@ -1624,69 +1624,81 @@
          ACHIEVEMENTS
     ====================================================== -->
 
- <div class="achievement-list">
+ .achievement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
 
-  <!-- Achievement 1 -->
-  <div class="achievement-card">
-    <div class="achievement-number">01</div>
-    <div class="achievement-content">
-      <h3>Gold Medalist</h3>
-      <p>All Odisha Technomania Hackathon</p>
-    </div>
-  </div>
+.achievement-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 26px 30px;
+  border: 1px solid rgba(80, 190, 255, 0.15);
+  border-radius: 12px;
+  background: rgba(8, 20, 35, 0.72);
+  overflow: hidden;
+  transition: 
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
 
-  <!-- Achievement 2 -->
-  <div class="achievement-card">
-    <div class="achievement-number">02</div>
-    <div class="achievement-content">
-      <h3>Gold Medalist</h3>
-      <p>Engineers Edge 2025 State-Level Tech Fest</p>
-    </div>
-  </div>
+/* Blue highlight line */
+.achievement-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #29b6ff;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s ease;
+}
 
-  <!-- Achievement 3 -->
-  <div class="achievement-card">
-    <div class="achievement-number">03</div>
-    <div class="achievement-content">
-      <h3>Silver Medalist</h3>
-      <p>All Odisha IoT Innovation Technomania 3.0</p>
-    </div>
-  </div>
+.achievement-card:hover {
+  transform: translateX(8px);
+  border-color: rgba(41, 182, 255, 0.55);
+  background: rgba(12, 30, 50, 0.9);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
 
-  <!-- Achievement 4 -->
-  <div class="achievement-card">
-    <div class="achievement-number">04</div>
-    <div class="achievement-content">
-      <h3>Selected for IOCL Training Programme</h3>
-      <p>
-        Professional industrial training and practical exposure
-        to technical and operational environments.
-      </p>
-    </div>
-  </div>
+.achievement-card:hover::before {
+  transform: scaleY(1);
+}
 
-  <!-- Achievement 5 -->
-  <div class="achievement-card">
-    <div class="achievement-number">05</div>
-    <div class="achievement-content">
-      <h3>Selected for AAI Bengaluru Training Programme</h3>
-      <p>
-        Training exposure to aviation infrastructure,
-        airport systems and technical operations.
-      </p>
-    </div>
-  </div>
+.achievement-number {
+  min-width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(41, 182, 255, 0.35);
+  border-radius: 8px;
+  color: #29b6ff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
 
-  <!-- Achievement 6 -->
-  <div class="achievement-card">
-    <div class="achievement-number">06</div>
-    <div class="achievement-content">
-      <h3>Student Entrepreneur</h3>
-      <p>Electropreneur Park Bhubaneswar — OCP Programme 5.0</p>
-    </div>
-  </div>
+.achievement-content h3 {
+  margin: 0 0 7px;
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 700;
+}
 
-</div>
+.achievement-content p {
+  margin: 0;
+  color: #aebdcc;
+  font-size: 15px;
+  line-height: 1.6;
+}
     <!-- =====================================================
          EDUCATION
     ====================================================== -->
