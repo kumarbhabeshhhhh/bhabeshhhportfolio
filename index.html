@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Bhabesh Kumar Lenka — Electrical Engineer, IoT & Embedded Systems Innovator">
+
+  <meta
+    name="description"
+    content="Bhabesh Kumar Lenka — Electrical Engineer, IoT & Embedded Systems Innovator"
+  >
+
   <title>Bhabesh Kumar Lenka | Electrical Engineer</title>
 
   <style>
+    /* =========================================================
+       RESET
+    ========================================================= */
+
     * {
       margin: 0;
       padding: 0;
@@ -21,8 +30,8 @@
       font-family: Arial, Helvetica, sans-serif;
       background: #07111f;
       color: #e8f0f8;
-      overflow-x: hidden;
       line-height: 1.7;
+      overflow-x: hidden;
     }
 
     a {
@@ -30,56 +39,236 @@
       text-decoration: none;
     }
 
-    /* =========================
-       BACKGROUND
-    ========================= */
-
-    body::before {
-      content: "";
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      top: -200px;
-      left: -180px;
-      background: radial-gradient(
-        circle,
-        rgba(40, 140, 255, 0.13),
-        transparent 70%
-      );
-      pointer-events: none;
-      z-index: -2;
-      animation: floatGlow 9s ease-in-out infinite alternate;
+    ::selection {
+      background: rgba(50, 168, 255, 0.3);
+      color: #fff;
     }
 
-    body::after {
-      content: "";
+
+    /* =========================================================
+       ANIMATED BACKGROUND
+    ========================================================= */
+
+    .background {
       position: fixed;
-      width: 550px;
-      height: 550px;
-      right: -250px;
-      bottom: -250px;
-      background: radial-gradient(
-        circle,
-        rgba(0, 220, 255, 0.09),
-        transparent 70%
-      );
+      inset: 0;
+      overflow: hidden;
       pointer-events: none;
-      z-index: -2;
-      animation: floatGlow 11s ease-in-out infinite alternate-reverse;
+      z-index: -5;
     }
 
-    @keyframes floatGlow {
+    /* Moving grid */
+
+    .background-grid {
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(50, 168, 255, 0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(50, 168, 255, 0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 65px 65px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.8),
+        transparent 90%
+      );
+
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(65px);
+      }
+    }
+
+
+    /* Glowing orbs */
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.18;
+    }
+
+    .orb.one {
+      width: 420px;
+      height: 420px;
+      background: #087cff;
+      top: -180px;
+      left: -160px;
+      animation: orbOne 13s ease-in-out infinite alternate;
+    }
+
+    .orb.two {
+      width: 380px;
+      height: 380px;
+      background: #00c8ff;
+      right: -170px;
+      top: 25%;
+      animation: orbTwo 16s ease-in-out infinite alternate;
+    }
+
+    .orb.three {
+      width: 320px;
+      height: 320px;
+      background: #1262ff;
+      bottom: -150px;
+      left: 35%;
+      animation: orbThree 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes orbOne {
       from {
         transform: translate(0, 0) scale(1);
       }
+
       to {
-        transform: translate(40px, 30px) scale(1.15);
+        transform: translate(160px, 120px) scale(1.2);
       }
     }
 
-    /* =========================
+    @keyframes orbTwo {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(-130px, 100px) scale(1.15);
+      }
+    }
+
+    @keyframes orbThree {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-150px) scale(1.2);
+      }
+    }
+
+
+    /* Floating particles */
+
+    .particles {
+      position: absolute;
+      inset: 0;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #32a8ff;
+      border-radius: 50%;
+      opacity: 0.35;
+      animation: particleFloat linear infinite;
+    }
+
+    .particle:nth-child(1) {
+      left: 8%;
+      top: 20%;
+      animation-duration: 9s;
+    }
+
+    .particle:nth-child(2) {
+      left: 18%;
+      top: 70%;
+      animation-duration: 13s;
+    }
+
+    .particle:nth-child(3) {
+      left: 30%;
+      top: 35%;
+      animation-duration: 11s;
+    }
+
+    .particle:nth-child(4) {
+      left: 42%;
+      top: 80%;
+      animation-duration: 15s;
+    }
+
+    .particle:nth-child(5) {
+      left: 55%;
+      top: 22%;
+      animation-duration: 12s;
+    }
+
+    .particle:nth-child(6) {
+      left: 67%;
+      top: 60%;
+      animation-duration: 10s;
+    }
+
+    .particle:nth-child(7) {
+      left: 78%;
+      top: 30%;
+      animation-duration: 14s;
+    }
+
+    .particle:nth-child(8) {
+      left: 88%;
+      top: 75%;
+      animation-duration: 16s;
+    }
+
+    .particle:nth-child(9) {
+      left: 94%;
+      top: 15%;
+      animation-duration: 12s;
+    }
+
+    .particle:nth-child(10) {
+      left: 50%;
+      top: 50%;
+      animation-duration: 17s;
+    }
+
+    @keyframes particleFloat {
+      0% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+
+      25% {
+        opacity: 0.45;
+      }
+
+      50% {
+        transform: translateY(-80px);
+        opacity: 0.25;
+      }
+
+      75% {
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: translateY(-160px);
+        opacity: 0;
+      }
+    }
+
+
+    /* =========================================================
        LOADER
-    ========================= */
+    ========================================================= */
 
     #loader {
       position: fixed;
@@ -89,7 +278,9 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      transition: opacity 0.7s ease, visibility 0.7s ease;
+      transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
     }
 
     #loader.hide {
@@ -102,24 +293,29 @@
     }
 
     .loader-logo {
-      font-size: 34px;
+      font-size: 36px;
       font-weight: 800;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       color: #fff;
       animation: loaderPulse 1.5s infinite;
     }
 
+    .loader-logo span {
+      color: #32a8ff;
+    }
+
     .loader-line {
-      width: 90px;
+      width: 100px;
       height: 2px;
       background: #32a8ff;
       margin: 18px auto 0;
+      box-shadow: 0 0 15px rgba(50,168,255,0.8);
       animation: loaderLine 1.4s infinite;
     }
 
     @keyframes loaderPulse {
       50% {
-        opacity: 0.45;
+        opacity: 0.4;
       }
     }
 
@@ -128,60 +324,83 @@
         transform: scaleX(0);
         transform-origin: left;
       }
+
       50% {
         transform: scaleX(1);
         transform-origin: left;
       }
+
       100% {
         transform: scaleX(0);
         transform-origin: right;
       }
     }
 
-    /* =========================
-       PROGRESS BAR
-    ========================= */
+
+    /* =========================================================
+       SCROLL PROGRESS
+    ========================================================= */
 
     .progress-bar {
       position: fixed;
       top: 0;
       left: 0;
-      width: 0%;
       height: 3px;
+      width: 0;
       background: #32a8ff;
+      box-shadow: 0 0 15px rgba(50,168,255,0.9);
       z-index: 10000;
-      box-shadow: 0 0 15px rgba(50, 168, 255, 0.8);
     }
 
-    /* =========================
+
+    /* =========================================================
+       CURSOR GLOW
+    ========================================================= */
+
+    .cursor-glow {
+      position: fixed;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(50,168,255,0.08),
+        transparent 68%
+      );
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+
+    /* =========================================================
        HEADER
-    ========================= */
+    ========================================================= */
 
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      padding: 24px 6%;
+      padding: 25px 6%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       z-index: 1000;
       transition: 0.4s ease;
     }
 
     header.scrolled {
-      background: rgba(7, 17, 31, 0.86);
-      backdrop-filter: blur(18px);
       padding: 16px 6%;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(7,17,31,0.84);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .logo {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 800;
-      letter-spacing: 2px;
-      position: relative;
+      letter-spacing: 3px;
     }
 
     .logo span {
@@ -190,14 +409,14 @@
 
     nav {
       display: flex;
-      gap: 34px;
+      gap: 30px;
       align-items: center;
     }
 
     nav a {
-      font-size: 13px;
-      color: #aebdcc;
       position: relative;
+      color: #9eafbf;
+      font-size: 13px;
       transition: 0.3s;
     }
 
@@ -228,18 +447,20 @@
       font-size: 25px;
     }
 
-    /* =========================
+
+    /* =========================================================
        CONTAINER
-    ========================= */
+    ========================================================= */
 
     .container {
       width: min(1120px, 88%);
       margin: auto;
     }
 
-    /* =========================
+
+    /* =========================================================
        HERO
-    ========================= */
+    ========================================================= */
 
     .hero {
       min-height: auto;
@@ -249,58 +470,80 @@
     }
 
     .hero-content {
-      max-width: 900px;
+      max-width: 920px;
     }
 
     .eyebrow {
       color: #32a8ff;
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 22px;
       opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.3s;
+      animation: fadeUp 0.8s ease forwards 0.25s;
     }
 
     .hero h1 {
-      font-size: clamp(48px, 8vw, 92px);
+      font-size: clamp(50px, 8vw, 94px);
       line-height: 0.98;
       letter-spacing: -4px;
       margin-bottom: 28px;
       opacity: 0;
-      animation: fadeUp 0.9s ease forwards 0.5s;
+      animation: fadeUp 0.9s ease forwards 0.45s;
     }
 
     .hero h1 span {
       color: #32a8ff;
+      text-shadow:
+        0 0 30px rgba(50,168,255,0.2);
     }
 
     .hero-description {
-      max-width: 700px;
+      max-width: 720px;
       color: #9cacbc;
       font-size: 18px;
       margin-bottom: 32px;
       opacity: 0;
-      animation: fadeUp 0.9s ease forwards 0.7s;
+      animation: fadeUp 0.9s ease forwards 0.65s;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 16px;
       align-items: center;
       flex-wrap: wrap;
+      gap: 15px;
       opacity: 0;
-      animation: fadeUp 0.9s ease forwards 0.9s;
+      animation: fadeUp 0.9s ease forwards 0.85s;
     }
 
     .btn {
-      padding: 13px 22px;
-      border: 1px solid rgba(50, 168, 255, 0.55);
-      border-radius: 5px;
-      font-size: 14px;
-      transition: 0.3s ease;
       position: relative;
       overflow: hidden;
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 5px;
+      border: 1px solid rgba(50,168,255,0.55);
+      font-size: 14px;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.15);
+      transform: skewX(-20deg);
+      transition: 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 120%;
     }
 
     .btn-primary {
@@ -311,7 +554,8 @@
 
     .btn-primary:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(50, 168, 255, 0.22);
+      box-shadow:
+        0 12px 35px rgba(50,168,255,0.25);
     }
 
     .btn-outline {
@@ -319,24 +563,25 @@
     }
 
     .btn-outline:hover {
-      background: rgba(50, 168, 255, 0.08);
+      background: rgba(50,168,255,0.08);
       transform: translateY(-4px);
     }
 
     .text-link {
-      color: #8fa2b5;
+      color: #91a3b5;
       font-size: 14px;
       transition: 0.3s;
     }
 
     .text-link:hover {
       color: #32a8ff;
-      transform: translateX(4px);
+      transform: translateX(5px);
     }
 
-    /* =========================
-       SECTION
-    ========================= */
+
+    /* =========================================================
+       SECTIONS
+    ========================================================= */
 
     .section {
       padding: 58px 0 95px;
@@ -354,19 +599,21 @@
 
     .section-title {
       font-size: 42px;
+      line-height: 1.15;
       letter-spacing: -1.5px;
       margin-bottom: 25px;
     }
 
     .section-text {
       color: #9cacbc;
-      max-width: 750px;
+      max-width: 780px;
       font-size: 16px;
     }
 
-    /* =========================
-       REVEAL ANIMATION
-    ========================= */
+
+    /* =========================================================
+       REVEAL
+    ========================================================= */
 
     .reveal {
       opacity: 0;
@@ -381,9 +628,10 @@
       transform: translateY(0);
     }
 
-    /* =========================
+
+    /* =========================================================
        SKILLS
-    ========================= */
+    ========================================================= */
 
     .skills {
       display: flex;
@@ -394,28 +642,128 @@
 
     .skill {
       padding: 8px 13px;
-      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.015);
       color: #aebdcc;
       font-size: 13px;
       transition: 0.3s;
-      background: rgba(255,255,255,0.015);
     }
 
     .skill:hover {
       color: #fff;
-      border-color: rgba(50,168,255,0.45);
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(50,168,255,0.08);
+      border-color: rgba(50,168,255,0.5);
+      transform: translateY(-5px);
+      box-shadow:
+        0 10px 25px rgba(50,168,255,0.08);
     }
 
-    /* =========================
+
+    /* =========================================================
+       WORK GRID
+    ========================================================= */
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      position: relative;
+      padding: 32px;
+      min-height: 270px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 9px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(50,168,255,0.055),
+          rgba(255,255,255,0.012)
+        );
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(50,168,255,0.07);
+      filter: blur(45px);
+      right: -90px;
+      bottom: -90px;
+      transition: 0.5s;
+    }
+
+    .project-card:hover {
+      border-color: rgba(50,168,255,0.4);
+      box-shadow:
+        0 25px 60px rgba(0,0,0,0.22);
+      transform: translateY(-7px);
+    }
+
+    .project-card:hover::before {
+      transform: scale(1.6);
+    }
+
+    .project-number {
+      color: #53677b;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .project-label {
+      color: #32a8ff;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .project-card h3 {
+      font-size: 25px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .project-card p {
+      color: #95a6b7;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .project-tech span {
+      padding: 5px 9px;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 3px;
+      color: #8092a4;
+      font-size: 11px;
+    }
+
+
+    /* =========================================================
        EXPERIENCE
-    ========================= */
+    ========================================================= */
 
     .experience-card {
-      border: 1px solid rgba(255,255,255,0.08);
       padding: 30px;
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 8px;
       background: rgba(255,255,255,0.018);
       transition: 0.4s ease;
@@ -424,15 +772,16 @@
     .experience-card:hover {
       transform: translateY(-7px);
       border-color: rgba(50,168,255,0.35);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.18);
     }
 
     .experience-card h3 {
-      font-size: 23px;
+      font-size: 24px;
       margin-bottom: 5px;
     }
 
-    .experience-card .role {
+    .role {
       color: #32a8ff;
       font-size: 14px;
       margin-bottom: 18px;
@@ -442,63 +791,10 @@
       color: #9cacbc;
     }
 
-    /* =========================
-       PROJECT
-    ========================= */
 
-    .project-card {
-      padding: 38px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(50,168,255,0.06),
-          rgba(255,255,255,0.015)
-        );
-      transition: transform 0.25s ease, box-shadow 0.3s ease;
-      transform-style: preserve-3d;
-      perspective: 1000px;
-    }
-
-    .project-card:hover {
-      box-shadow: 0 30px 70px rgba(0,0,0,0.25);
-    }
-
-    .project-label {
-      color: #32a8ff;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .project-card h3 {
-      font-size: 34px;
-      margin-bottom: 15px;
-    }
-
-    .project-card p {
-      color: #9cacbc;
-      margin-bottom: 22px;
-    }
-
-    .project-features {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .project-feature {
-      border-left: 2px solid #32a8ff;
-      padding-left: 12px;
-      color: #c5d0db;
-      font-size: 14px;
-    }
-
-    /* =========================
+    /* =========================================================
        ACHIEVEMENTS
-    ========================= */
+    ========================================================= */
 
     .achievement-list {
       display: grid;
@@ -510,6 +806,7 @@
       border: 1px solid rgba(255,255,255,0.07);
       border-radius: 6px;
       color: #b9c6d2;
+      background: rgba(255,255,255,0.01);
       transition: 0.35s;
     }
 
@@ -523,9 +820,10 @@
       color: #fff;
     }
 
-    /* =========================
+
+    /* =========================================================
        EDUCATION
-    ========================= */
+    ========================================================= */
 
     .education-card {
       padding: 30px;
@@ -554,9 +852,10 @@
       font-weight: 700;
     }
 
-    /* =========================
+
+    /* =========================================================
        CONTACT
-    ========================= */
+    ========================================================= */
 
     .contact-box {
       padding: 45px;
@@ -567,7 +866,7 @@
         radial-gradient(
           circle at center,
           rgba(50,168,255,0.08),
-          transparent 60%
+          transparent 65%
         );
     }
 
@@ -581,18 +880,20 @@
       margin-bottom: 28px;
     }
 
-    /* =========================
-       SOCIAL ICONS
-    ========================= */
+
+    /* =========================================================
+       SOCIALS
+    ========================================================= */
 
     .socials {
       display: flex;
       justify-content: center;
       gap: 14px;
-      margin-top: 25px;
+      margin-top: 28px;
     }
 
     .social {
+      position: relative;
       width: 46px;
       height: 46px;
       border: 1px solid rgba(255,255,255,0.1);
@@ -600,17 +901,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 18px;
       color: #b8c6d4;
-      transition: 0.3s ease;
-      position: relative;
+      font-size: 17px;
+      font-weight: 700;
+      transition: 0.3s;
     }
 
     .social:hover {
       color: #32a8ff;
       border-color: #32a8ff;
       transform: translateY(-6px) scale(1.08);
-      box-shadow: 0 10px 25px rgba(50,168,255,0.15);
+      box-shadow:
+        0 10px 25px rgba(50,168,255,0.15);
     }
 
     .social::after {
@@ -620,9 +922,9 @@
       font-size: 10px;
       white-space: nowrap;
       opacity: 0;
+      color: #32a8ff;
       transform: translateY(-4px);
       transition: 0.3s;
-      color: #32a8ff;
     }
 
     .social:hover::after {
@@ -630,9 +932,10 @@
       transform: translateY(0);
     }
 
-    /* =========================
+
+    /* =========================================================
        FOOTER
-    ========================= */
+    ========================================================= */
 
     footer {
       padding: 35px 0;
@@ -642,28 +945,10 @@
       font-size: 12px;
     }
 
-    /* =========================
-       CURSOR GLOW
-    ========================= */
 
-    .cursor-glow {
-      position: fixed;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(
-        circle,
-        rgba(50,168,255,0.09),
-        transparent 65%
-      );
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: -1;
-    }
-
-    /* =========================
-       ANIMATIONS
-    ========================= */
+    /* =========================================================
+       GENERAL ANIMATION
+    ========================================================= */
 
     @keyframes fadeUp {
       from {
@@ -677,11 +962,12 @@
       }
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
 
-    @media (max-width: 800px) {
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 850px) {
 
       header {
         padding: 20px 6%;
@@ -689,17 +975,18 @@
 
       nav {
         position: absolute;
-        top: 75px;
+        top: 72px;
         right: 6%;
-        width: 220px;
+        width: 235px;
         padding: 22px;
-        background: rgba(7,17,31,0.97);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 8px;
         display: none;
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
+        gap: 19px;
+        background: rgba(7,17,31,0.97);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 8px;
+        backdrop-filter: blur(20px);
       }
 
       nav.open {
@@ -746,97 +1033,208 @@
         font-size: 34px;
       }
 
-      .project-card {
-        padding: 25px;
-      }
-
-      .project-card h3 {
-        font-size: 28px;
-      }
-
-      .project-features {
+      .work-grid {
         grid-template-columns: 1fr;
       }
 
+      .project-card {
+        min-height: auto;
+        padding: 26px;
+      }
+
       .contact-box {
-        padding: 30px 20px;
+        padding: 32px 20px;
       }
 
       .contact-box h2 {
         font-size: 32px;
       }
+
+      .cursor-glow {
+        display: none;
+      }
     }
 
-    /* =========================
+
+    /* =========================================================
        REDUCED MOTION
-    ========================= */
+    ========================================================= */
 
     @media (prefers-reduced-motion: reduce) {
+
       *,
       *::before,
       *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- LOADER -->
-  <div id="loader">
-    <div class="loader-inner">
-      <div class="loader-logo">BL<span>.</span></div>
-      <div class="loader-line"></div>
+
+  <!-- =======================================================
+       ANIMATED BACKGROUND
+  ======================================================== -->
+
+  <div class="background">
+
+    <div class="background-grid"></div>
+
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+
+    <div class="particles">
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
     </div>
+
   </div>
 
+
+  <!-- =======================================================
+       LOADER
+  ======================================================== -->
+
+  <div id="loader">
+
+    <div class="loader-inner">
+
+      <div class="loader-logo">
+        BL<span>.</span>
+      </div>
+
+      <div class="loader-line"></div>
+
+    </div>
+
+  </div>
+
+
   <!-- SCROLL PROGRESS -->
-  <div class="progress-bar" id="progressBar"></div>
 
-  <!-- CURSOR GLOW -->
-  <div class="cursor-glow" id="cursorGlow"></div>
+  <div
+    class="progress-bar"
+    id="progressBar"
+  ></div>
 
-  <!-- HEADER -->
+
+  <!-- CURSOR -->
+
+  <div
+    class="cursor-glow"
+    id="cursorGlow"
+  ></div>
+
+
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
+
   <header id="header">
-    <a href="#home" class="logo">BL<span>.</span></a>
+
+    <a
+      href="#home"
+      class="logo"
+    >
+      BL<span>.</span>
+    </a>
+
 
     <nav id="nav">
-      <a href="#about">01. About</a>
-      <a href="#experience">02. Experience</a>
-      <a href="#work">03. Work</a>
-      <a href="#achievements">04. Achievements</a>
-      <a href="#education">05. Education</a>
-      <a href="#contact">06. Contact</a>
+
+      <a href="#about">
+        01. About
+      </a>
+
+      <a href="#experience">
+        02. Experience
+      </a>
+
+      <a href="#work">
+        03. Work
+      </a>
+
+      <a href="#achievements">
+        04. Achievements
+      </a>
+
+      <a href="#education">
+        05. Education
+      </a>
+
+      <a href="#contact">
+        06. Contact
+      </a>
+
     </nav>
 
-    <div class="menu-btn" id="menuBtn">☰</div>
+
+    <div
+      class="menu-btn"
+      id="menuBtn"
+    >
+      ☰
+    </div>
+
   </header>
 
-  <!-- HERO -->
+
+  <!-- =======================================================
+       MAIN
+  ======================================================== -->
+
   <main>
 
-    <section class="hero" id="home">
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section
+      class="hero"
+      id="home"
+    >
+
       <div class="container">
+
         <div class="hero-content">
 
           <div class="eyebrow">
             Electrical Engineer · IoT · Embedded Systems
           </div>
 
+
           <h1>
             Bhabesh<br>
             Kumar <span>Lenka.</span>
           </h1>
 
+
           <p class="hero-description">
-            Electrical Engineer and IoT & Embedded Systems Innovator focused on
-            building practical technology through sensors, embedded systems,
-            automation and assistive engineering solutions.
+
+            Electrical Engineer and IoT & Embedded Systems Innovator
+            focused on building practical technology through sensors,
+            embedded systems, automation and assistive engineering
+            solutions.
+
           </p>
+
 
           <div class="hero-buttons">
 
@@ -848,9 +1246,14 @@
               View Resume ↗
             </a>
 
-            <a href="#work" class="btn btn-outline">
+
+            <a
+              href="#work"
+              class="btn btn-outline"
+            >
               Explore My Work
             </a>
+
 
             <a
               href="resume.pdf"
@@ -863,27 +1266,52 @@
           </div>
 
         </div>
+
       </div>
+
     </section>
 
-    <!-- ABOUT -->
-    <section class="section reveal" id="about">
-      <div class="section-number">01 / ABOUT</div>
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section
+      class="section reveal"
+      id="about"
+    >
+
+      <div class="section-number">
+        01 / ABOUT
+      </div>
+
 
       <div>
-        <h2 class="section-title">Engineering with purpose.</h2>
+
+        <h2 class="section-title">
+          Engineering with purpose.
+        </h2>
+
 
         <p class="section-text">
+
           I am an Electrical Engineering graduate focused on IoT,
-          embedded systems, sensors and practical engineering solutions.
-          My work combines electrical engineering fundamentals with
-          hardware prototyping and intelligent sensing systems.
+          embedded systems, sensors and practical engineering
+          solutions. My work combines electrical engineering
+          fundamentals with hardware prototyping and intelligent
+          sensing systems.
+
+          <br><br>
+
           I am particularly interested in assistive technology,
           wearable electronics, automation and affordable technology
           designed to solve real-world problems.
+
         </p>
 
+
         <div class="skills">
+
           <div class="skill">IoT Systems</div>
           <div class="skill">Embedded Systems</div>
           <div class="skill">ESP32</div>
@@ -894,144 +1322,461 @@
           <div class="skill">Electrical Engineering</div>
           <div class="skill">Prototyping</div>
           <div class="skill">Assistive Technology</div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- EXPERIENCE -->
-    <section class="section reveal" id="experience">
-      <div class="section-number">02 / EXPERIENCE</div>
+
+    <!-- =====================================================
+         EXPERIENCE
+    ====================================================== -->
+
+    <section
+      class="section reveal"
+      id="experience"
+    >
+
+      <div class="section-number">
+        02 / EXPERIENCE
+      </div>
+
 
       <div>
-        <h2 class="section-title">Building beyond the classroom.</h2>
+
+        <h2 class="section-title">
+          Building beyond the classroom.
+        </h2>
+
 
         <div class="experience-card">
 
-          <h3>Smart Shoe</h3>
+          <h3>
+            Smart Shoe
+          </h3>
+
 
           <div class="role">
             Assistive Technology · IoT · Embedded Systems
           </div>
 
+
           <p>
+
             Developed a smart wearable footwear concept focused on
             obstacle detection and improved mobility for visually
             impaired individuals. The project involves sensor-based
             detection, embedded control, alert mechanisms and
             real-world hardware prototyping.
+
           </p>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- WORK -->
-    <section class="section reveal" id="work">
-      <div class="section-number">03 / WORK</div>
-
-      <div>
-
-        <h2 class="section-title">Selected work.</h2>
-
-        <div
-          class="project-card"
-          id="projectCard"
-        >
-
-          <div class="project-label">
-            Assistive Technology
-          </div>
-
-          <h3>Smart Shoe</h3>
-
-          <p>
-            A smart wearable system designed to assist visually
-            impaired individuals by detecting obstacles and providing
-            intuitive alerts through embedded sensing technology.
-          </p>
-
-          <div class="project-features">
-
-            <div class="project-feature">
-              Obstacle Detection
-            </div>
-
-            <div class="project-feature">
-              Embedded Control
-            </div>
-
-            <div class="project-feature">
-              Sensor Integration
-            </div>
-
-            <div class="project-feature">
-              Wearable Technology
-            </div>
-
-          </div>
 
         </div>
 
       </div>
+
     </section>
 
-    <!-- ACHIEVEMENTS -->
-    <section class="section reveal" id="achievements">
-      <div class="section-number">04 / ACHIEVEMENTS</div>
+
+    <!-- =====================================================
+         WORK
+    ====================================================== -->
+
+    <section
+      class="section reveal"
+      id="work"
+    >
+
+      <div class="section-number">
+        03 / WORK
+      </div>
+
 
       <div>
 
-        <h2 class="section-title">Milestones.</h2>
+        <h2 class="section-title">
+          Selected engineering projects.
+        </h2>
+
+
+        <div class="work-grid">
+
+
+          <!-- SMART SHOE -->
+
+          <article class="project-card">
+
+            <div class="project-number">
+              PROJECT 01
+            </div>
+
+            <div class="project-label">
+              Assistive Technology
+            </div>
+
+            <h3>
+              Smart Shoe
+            </h3>
+
+            <p>
+
+              Smart wearable footwear designed to assist visually
+              impaired individuals through obstacle detection and
+              intuitive alert mechanisms.
+
+            </p>
+
+
+            <div class="project-tech">
+
+              <span>ESP32</span>
+              <span>Ultrasonic Sensors</span>
+              <span>IoT</span>
+              <span>Wearable</span>
+
+            </div>
+
+          </article>
+
+
+          <!-- MINING HELMET -->
+
+          <article class="project-card">
+
+            <div class="project-number">
+              PROJECT 02
+            </div>
+
+            <div class="project-label">
+              Industrial Safety
+            </div>
+
+            <h3>
+              Smart Mining Helmet
+            </h3>
+
+            <p>
+
+              IoT-based mining safety system designed for monitoring
+              hazardous conditions and providing immediate alerts
+              through gas, tilt and emergency detection.
+
+            </p>
+
+
+            <div class="project-tech">
+
+              <span>ESP32</span>
+              <span>Gas Detection</span>
+              <span>Tilt Detection</span>
+              <span>RF Communication</span>
+
+            </div>
+
+          </article>
+
+
+          <!-- SMART GRID -->
+
+          <article class="project-card">
+
+            <div class="project-number">
+              PROJECT 03
+            </div>
+
+            <div class="project-label">
+              Energy Technology
+            </div>
+
+            <h3>
+              Smart Grid Load Monitoring
+            </h3>
+
+            <p>
+
+              Electrical monitoring concept focused on observing
+              power-system loads and supporting intelligent energy
+              management through sensing and IoT-based monitoring.
+
+            </p>
+
+
+            <div class="project-tech">
+
+              <span>IoT</span>
+              <span>Energy Monitoring</span>
+              <span>Sensors</span>
+              <span>Automation</span>
+
+            </div>
+
+          </article>
+
+
+          <!-- SMART STREET LIGHT -->
+
+          <article class="project-card">
+
+            <div class="project-number">
+              PROJECT 04
+            </div>
+
+            <div class="project-label">
+              Smart Infrastructure
+            </div>
+
+            <h3>
+              Smart Street Light
+            </h3>
+
+            <p>
+
+              Automated street-lighting concept designed to improve
+              energy efficiency by intelligently controlling
+              lighting according to environmental conditions.
+
+            </p>
+
+
+            <div class="project-tech">
+
+              <span>Automation</span>
+              <span>Sensors</span>
+              <span>Electrical Systems</span>
+
+            </div>
+
+          </article>
+
+
+          <!-- SOLAR PANEL CLEANER -->
+
+          <article class="project-card">
+
+            <div class="project-number">
+              PROJECT 05
+            </div>
+
+            <div class="project-label">
+              Renewable Energy
+            </div>
+
+            <h3>
+              Solar Panel Cleaner
+            </h3>
+
+            <p>
+
+              Engineering concept focused on automated solar-panel
+              cleaning to maintain panel performance while reducing
+              manual maintenance requirements.
+
+            </p>
+
+
+            <div class="project-tech">
+
+              <span>Solar Energy</span>
+              <span>Automation</span>
+              <span>Motors</span>
+
+            </div>
+
+          </article>
+
+
+          <!-- SAFETY / SOS -->
+
+          <article class="project-card">
+
+            <div class="project-number">
+              PROJECT 06
+            </div>
+
+            <div class="project-label">
+              Safety Technology
+            </div>
+
+            <h3>
+              Emergency SOS System
+            </h3>
+
+            <p>
+
+              Embedded safety concept focused on rapid emergency
+              signalling and event-triggered alerts for real-world
+              safety applications.
+
+            </p>
+
+
+            <div class="project-tech">
+
+              <span>Embedded Systems</span>
+              <span>Wireless Communication</span>
+              <span>SOS</span>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ACHIEVEMENTS
+    ====================================================== -->
+
+    <section
+      class="section reveal"
+      id="achievements"
+    >
+
+      <div class="section-number">
+        04 / ACHIEVEMENTS
+      </div>
+
+
+      <div>
+
+        <h2 class="section-title">
+          Milestones.
+        </h2>
+
 
         <div class="achievement-list">
 
+
           <div class="achievement">
-            <strong>1st Position</strong> —
+
+            <strong>
+              1st Position
+            </strong>
+
+            —
             All Odisha Technomania Hackathon
+
           </div>
 
+
           <div class="achievement">
-            <strong>1st Position</strong> —
+
+            <strong>
+              1st Position
+            </strong>
+
+            —
             Engineers Edge 2025 State-Level Tech Fest
+
           </div>
 
+
           <div class="achievement">
-            <strong>2nd Position</strong> —
+
+            <strong>
+              2nd Position
+            </strong>
+
+            —
             All Odisha IoT Innovation Technomania 3.0
+
           </div>
 
+
           <div class="achievement">
-            <strong>Gold Medal</strong> —
+
+            <strong>
+              Gold Medal
+            </strong>
+
+            —
             Odisha IoT Innovation Programme
+
           </div>
 
+
           <div class="achievement">
-            <strong>Selected for</strong> —
+
+            <strong>
+              Silver Medal
+            </strong>
+
+            —
+            Odisha IoT Innovation Programme
+
+          </div>
+
+
+          <div class="achievement">
+
+            <strong>
+              Selected for
+            </strong>
+
+            —
             IOCL Training Programme
+
           </div>
 
+
           <div class="achievement">
-            <strong>Selected for</strong> —
+
+            <strong>
+              Selected for
+            </strong>
+
+            —
             AAI Bengaluru Training Programme
+
           </div>
 
+
           <div class="achievement">
-            <strong>Student Entrepreneur</strong> —
+
+            <strong>
+              Student Entrepreneur
+            </strong>
+
+            —
             OCP Programme
+
           </div>
+
 
         </div>
 
       </div>
+
     </section>
 
-    <!-- EDUCATION -->
-    <section class="section reveal" id="education">
-      <div class="section-number">05 / EDUCATION</div>
+
+    <!-- =====================================================
+         EDUCATION
+    ====================================================== -->
+
+    <section
+      class="section reveal"
+      id="education"
+    >
+
+      <div class="section-number">
+        05 / EDUCATION
+      </div>
+
 
       <div>
 
-        <h2 class="section-title">Education.</h2>
+        <h2 class="section-title">
+          Education.
+        </h2>
+
 
         <div class="education-card">
 
@@ -1039,14 +1784,17 @@
             Diploma in Electrical Engineering
           </h3>
 
+
           <p>
             Black Diamond School of Engineering,
             Jharsuguda, Odisha
           </p>
 
+
           <p>
             2023 – 2026 · Completed
           </p>
+
 
           <p class="cgpa">
             CGPA: 8.7 / 10
@@ -1055,22 +1803,40 @@
         </div>
 
       </div>
+
     </section>
 
-    <!-- CONTACT -->
-    <section class="section reveal" id="contact">
-      <div class="section-number">06 / CONTACT</div>
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section
+      class="section reveal"
+      id="contact"
+    >
+
+      <div class="section-number">
+        06 / CONTACT
+      </div>
+
 
       <div>
 
         <div class="contact-box">
 
-          <h2>Let's build something useful.</h2>
+          <h2>
+            Let's build something useful.
+          </h2>
+
 
           <p>
+
             Interested in engineering, IoT, embedded systems,
             assistive technology or collaboration?
+
           </p>
+
 
           <a
             href="mailto:bhabeshlenka2@gmail.com"
@@ -1079,9 +1845,12 @@
             Get in touch ↗
           </a>
 
+
           <div class="socials">
 
+
             <!-- EMAIL -->
+
             <a
               href="mailto:bhabeshlenka2@gmail.com"
               class="social"
@@ -1090,7 +1859,9 @@
               ✉
             </a>
 
+
             <!-- LINKEDIN -->
+
             <a
               href="https://www.linkedin.com/in/bhabesh-kumar-lenka-0b6812358"
               target="_blank"
@@ -1101,7 +1872,9 @@
               in
             </a>
 
+
             <!-- GITHUB -->
+
             <a
               href="https://github.com/bhabeshlenka2-wq"
               target="_blank"
@@ -1112,78 +1885,107 @@
               ◇
             </a>
 
+
           </div>
 
         </div>
 
       </div>
+
     </section>
 
   </main>
 
-  <!-- FOOTER -->
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
   <footer>
+
     © 2026 Bhabesh Kumar Lenka · Electrical Engineer
+
   </footer>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
 
   <script>
 
-    /* =========================
+    /* =======================================================
        LOADER
-    ========================= */
+    ======================================================== */
 
-    window.addEventListener("load", () => {
+    window.addEventListener("load", function () {
 
-      setTimeout(() => {
-        document.getElementById("loader").classList.add("hide");
+      setTimeout(function () {
+
+        const loader =
+          document.getElementById("loader");
+
+        loader.classList.add("hide");
+
       }, 700);
 
     });
 
 
-    /* =========================
-       HEADER
-    ========================= */
+    /* =======================================================
+       HEADER ON SCROLL
+    ======================================================== */
 
-    const header = document.getElementById("header");
+    const header =
+      document.getElementById("header");
 
-    window.addEventListener("scroll", () => {
+    window.addEventListener("scroll", function () {
 
       if (window.scrollY > 40) {
+
         header.classList.add("scrolled");
+
       } else {
+
         header.classList.remove("scrolled");
+
       }
 
     });
 
 
-    /* =========================
+    /* =======================================================
        SCROLL PROGRESS
-    ========================= */
+    ======================================================== */
 
     const progressBar =
       document.getElementById("progressBar");
 
-    window.addEventListener("scroll", () => {
+    window.addEventListener("scroll", function () {
 
-      const scrollTop = window.scrollY;
+      const scrollTop =
+        window.scrollY;
 
-      const height =
+      const documentHeight =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
 
-      const progress =
-        (scrollTop / height) * 100;
+      if (documentHeight <= 0) {
+        return;
+      }
 
-      progressBar.style.width = progress + "%";
+      const progress =
+        (scrollTop / documentHeight) * 100;
+
+      progressBar.style.width =
+        progress + "%";
 
     });
 
 
-    /* =========================
+    /* =======================================================
        MOBILE MENU
-    ========================= */
+    ======================================================== */
 
     const menuBtn =
       document.getElementById("menuBtn");
@@ -1191,37 +1993,46 @@
     const nav =
       document.getElementById("nav");
 
-    menuBtn.addEventListener("click", () => {
+    menuBtn.addEventListener("click", function () {
+
       nav.classList.toggle("open");
+
     });
 
-    document.querySelectorAll("nav a").forEach(link => {
 
-      link.addEventListener("click", () => {
-        nav.classList.remove("open");
+    document
+      .querySelectorAll("nav a")
+      .forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+          nav.classList.remove("open");
+
+        });
+
       });
 
-    });
 
-
-    /* =========================
+    /* =======================================================
        SECTION REVEAL
-    ========================= */
+    ======================================================== */
 
-    const reveals =
+    const revealElements =
       document.querySelectorAll(".reveal");
 
-    const observer =
+    const revealObserver =
       new IntersectionObserver(
-        entries => {
+        function (entries) {
 
-          entries.forEach(entry => {
+          entries.forEach(function (entry) {
 
             if (entry.isIntersecting) {
 
               entry.target.classList.add("show");
 
-              observer.unobserve(entry.target);
+              revealObserver.unobserve(
+                entry.target
+              );
 
             }
 
@@ -1233,14 +2044,17 @@
         }
       );
 
-    reveals.forEach(section => {
-      observer.observe(section);
+
+    revealElements.forEach(function (element) {
+
+      revealObserver.observe(element);
+
     });
 
 
-    /* =========================
-       ACTIVE NAV
-    ========================= */
+    /* =======================================================
+       ACTIVE NAVIGATION
+    ======================================================== */
 
     const sections =
       document.querySelectorAll("section[id]");
@@ -1248,30 +2062,39 @@
     const navLinks =
       document.querySelectorAll("nav a");
 
-    window.addEventListener("scroll", () => {
 
-      let current = "";
+    window.addEventListener("scroll", function () {
 
-      sections.forEach(section => {
+      let currentSection = "";
+
+      sections.forEach(function (section) {
 
         const sectionTop =
-          section.offsetTop - 180;
+          section.offsetTop - 190;
 
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute("id");
+        if (
+          window.scrollY >= sectionTop
+        ) {
+
+          currentSection =
+            section.getAttribute("id");
+
         }
 
       });
 
-      navLinks.forEach(link => {
+
+      navLinks.forEach(function (link) {
 
         link.classList.remove("active");
 
         if (
           link.getAttribute("href") ===
-          "#" + current
+          "#" + currentSection
         ) {
+
           link.classList.add("active");
+
         }
 
       });
@@ -1279,45 +2102,54 @@
     });
 
 
-    /* =========================
+    /* =======================================================
        CURSOR GLOW
-    ========================= */
+    ======================================================== */
 
     const cursorGlow =
       document.getElementById("cursorGlow");
 
-    document.addEventListener("mousemove", e => {
 
-      cursorGlow.style.left =
-        e.clientX + "px";
+    document.addEventListener(
+      "mousemove",
+      function (event) {
 
-      cursorGlow.style.top =
-        e.clientY + "px";
+        cursorGlow.style.left =
+          event.clientX + "px";
 
-    });
+        cursorGlow.style.top =
+          event.clientY + "px";
+
+      }
+    );
 
 
-    /* =========================
-       PROJECT 3D TILT
-    ========================= */
+    /* =======================================================
+       PROJECT 3D EFFECT
+    ======================================================== */
 
-    const project =
-      document.getElementById("projectCard");
+    const projectCards =
+      document.querySelectorAll(".project-card");
 
-    if (project) {
 
-      project.addEventListener(
+    projectCards.forEach(function (card) {
+
+      card.addEventListener(
         "mousemove",
-        e => {
+        function (event) {
+
+          if (window.innerWidth <= 850) {
+            return;
+          }
 
           const rect =
-            project.getBoundingClientRect();
+            card.getBoundingClientRect();
 
           const x =
-            e.clientX - rect.left;
+            event.clientX - rect.left;
 
           const y =
-            e.clientY - rect.top;
+            event.clientY - rect.top;
 
           const centerX =
             rect.width / 2;
@@ -1331,98 +2163,150 @@
           const rotateY =
             ((x - centerX) / centerX) * 3;
 
-          project.style.transform =
-            `perspective(1000px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             translateY(-4px)`;
+          card.style.transform =
+            "perspective(900px) " +
+            "rotateX(" + rotateX + "deg) " +
+            "rotateY(" + rotateY + "deg) " +
+            "translateY(-7px)";
 
         }
       );
 
-      project.addEventListener(
+
+      card.addEventListener(
         "mouseleave",
-        () => {
+        function () {
 
-          project.style.transform =
-            "perspective(1000px) rotateX(0) rotateY(0)";
+          card.style.transform = "";
 
         }
       );
 
-    }
+    });
 
 
-    /* =========================
+    /* =======================================================
        MAGNETIC BUTTON EFFECT
-    ========================= */
+    ======================================================== */
 
-    document.querySelectorAll(".btn").forEach(button => {
+    const buttons =
+      document.querySelectorAll(".btn");
 
-      button.addEventListener("mousemove", e => {
 
-        const rect =
-          button.getBoundingClientRect();
+    buttons.forEach(function (button) {
 
-        const x =
-          e.clientX - rect.left - rect.width / 2;
+      button.addEventListener(
+        "mousemove",
+        function (event) {
 
-        const y =
-          e.clientY - rect.top - rect.height / 2;
+          if (window.innerWidth <= 850) {
+            return;
+          }
 
-        button.style.transform =
-          `translate(${x * 0.08}px, ${y * 0.08}px)`;
+          const rect =
+            button.getBoundingClientRect();
 
-      });
+          const x =
+            event.clientX -
+            rect.left -
+            rect.width / 2;
 
-      button.addEventListener("mouseleave", () => {
+          const y =
+            event.clientY -
+            rect.top -
+            rect.height / 2;
 
-        button.style.transform = "";
+          button.style.transform =
+            "translate(" +
+            (x * 0.06) +
+            "px, " +
+            (y * 0.06) +
+            "px)";
 
-      });
+        }
+      );
+
+
+      button.addEventListener(
+        "mouseleave",
+        function () {
+
+          button.style.transform = "";
+
+        }
+      );
 
     });
 
 
-    /* =========================
+    /* =======================================================
        SOCIAL RIPPLE
-    ========================= */
+    ======================================================== */
 
-    document.querySelectorAll(".social").forEach(icon => {
+    const socialIcons =
+      document.querySelectorAll(".social");
 
-      icon.addEventListener("click", function(e) {
 
-        const ripple =
-          document.createElement("span");
+    socialIcons.forEach(function (icon) {
 
-        ripple.style.position = "absolute";
-        ripple.style.width = "10px";
-        ripple.style.height = "10px";
-        ripple.style.borderRadius = "50%";
-        ripple.style.border =
-          "1px solid rgba(50,168,255,0.8)";
-        ripple.style.left = "50%";
-        ripple.style.top = "50%";
-        ripple.style.transform =
-          "translate(-50%, -50%)";
-        ripple.style.animation =
-          "socialRipple 0.6s ease-out";
+      icon.addEventListener(
+        "click",
+        function () {
 
-        this.appendChild(ripple);
+          const ripple =
+            document.createElement("span");
 
-        setTimeout(() => {
-          ripple.remove();
-        }, 600);
+          ripple.style.position =
+            "absolute";
 
-      });
+          ripple.style.width =
+            "10px";
+
+          ripple.style.height =
+            "10px";
+
+          ripple.style.borderRadius =
+            "50%";
+
+          ripple.style.border =
+            "1px solid rgba(50,168,255,0.8)";
+
+          ripple.style.left =
+            "50%";
+
+          ripple.style.top =
+            "50%";
+
+          ripple.style.transform =
+            "translate(-50%, -50%)";
+
+          ripple.style.animation =
+            "socialRipple 0.6s ease-out";
+
+          this.appendChild(ripple);
+
+
+          setTimeout(function () {
+
+            ripple.remove();
+
+          }, 600);
+
+        }
+      );
 
     });
 
 
-    const style =
+    /* =======================================================
+       RIPPLE ANIMATION
+    ======================================================== */
+
+    const rippleStyle =
       document.createElement("style");
 
-    style.innerHTML = `
+
+    rippleStyle.textContent = `
 
       @keyframes socialRipple {
 
@@ -1433,8 +2317,8 @@
         }
 
         to {
-          width: 65px;
-          height: 65px;
+          width: 70px;
+          height: 70px;
           opacity: 0;
         }
 
@@ -1442,7 +2326,61 @@
 
     `;
 
-    document.head.appendChild(style);
+
+    document.head.appendChild(
+      rippleStyle
+    );
+
+
+    /* =======================================================
+       SMOOTH ANCHOR OFFSET
+    ======================================================== */
+
+    document
+      .querySelectorAll('a[href^="#"]')
+      .forEach(function (link) {
+
+        link.addEventListener(
+          "click",
+          function (event) {
+
+            const targetId =
+              this.getAttribute("href");
+
+            if (
+              targetId === "#" ||
+              targetId === ""
+            ) {
+              return;
+            }
+
+            const target =
+              document.querySelector(targetId);
+
+            if (!target) {
+              return;
+            }
+
+            event.preventDefault();
+
+            const headerHeight =
+              header.offsetHeight;
+
+            const targetPosition =
+              target.getBoundingClientRect().top +
+              window.scrollY -
+              headerHeight -
+              20;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth"
+            });
+
+          }
+        );
+
+      });
 
   </script>
 
