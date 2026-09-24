@@ -1637,7 +1637,7 @@
 .achievement-card {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 24px;
 
   padding: 26px 30px;
@@ -1656,11 +1656,9 @@
     background 0.35s ease;
 }
 
-/* Highlight line */
 .achievement-card::before {
   content: "";
   position: absolute;
-
   left: 0;
   top: 0;
 
@@ -1675,7 +1673,6 @@
   transition: transform 0.35s ease;
 }
 
-/* Hover effect */
 .achievement-card:hover {
   transform: translateX(8px);
 
@@ -1690,7 +1687,6 @@
   transform: scaleY(1);
 }
 
-/* Number */
 .achievement-number {
   min-width: 42px;
   height: 42px;
@@ -1706,34 +1702,13 @@
 
   font-size: 13px;
   font-weight: 700;
-
   letter-spacing: 1px;
 }
 
-/* Content */
 .achievement-content {
   flex: 1;
 }
 
-/* Year badge */
-.achievement-year {
-  display: inline-block;
-
-  margin-bottom: 8px;
-  padding: 4px 10px;
-
-  border: 1px solid rgba(41, 182, 255, 0.35);
-  border-radius: 20px;
-
-  color: #29b6ff;
-
-  font-size: 12px;
-  font-weight: 700;
-
-  letter-spacing: 1px;
-}
-
-/* Achievement title */
 .achievement-content h3 {
   margin: 0 0 7px;
 
@@ -1743,7 +1718,6 @@
   font-weight: 700;
 }
 
-/* Description */
 .achievement-content p {
   margin: 0;
 
@@ -1753,11 +1727,27 @@
   line-height: 1.6;
 }
 
+/* Year at the right */
+.achievement-year {
+  flex-shrink: 0;
+
+  min-width: 90px;
+
+  text-align: right;
+
+  color: #29b6ff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
 
   .achievement-card {
-    gap: 15px;
+    gap: 14px;
     padding: 20px;
   }
 
@@ -1773,6 +1763,11 @@
 
   .achievement-content p {
     font-size: 14px;
+  }
+
+  .achievement-year {
+    min-width: auto;
+    font-size: 12px;
   }
 
 }
