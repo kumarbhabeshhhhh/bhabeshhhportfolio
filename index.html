@@ -4,6 +4,264 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Bhabesh Kumar Lenka — Electrical Engineer | IoT & Embedded Systems Innovator">
+
+<title>Bhabesh Kumar Lenka | Electrical Engineer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+:root{
+--accent:#64ffda;
+--bg:#0a192f;
+--text:#ccd6f6;
+--muted:#8892b0;
+--ease:cubic-bezier(.16,1,.3,1);
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+overflow-x:hidden;
+}
+
+.page-loader{
+position:fixed;
+inset:0;
+background:#020c1b;
+display:grid;
+place-items:center;
+z-index:99999;
+animation:loaderHide 1.2s forwards;
+animation-delay:.5s;
+}
+
+.page-loader span{
+font-size:70px;
+color:var(--accent);
+font-family:"DM Mono",monospace;
+animation:pop .7s;
+}
+
+@keyframes pop{
+0%{opacity:0;transform:scale(.4) rotate(-20deg)}
+100%{opacity:1;transform:scale(1)}
+}
+
+@keyframes loaderHide{
+100%{opacity:0;visibility:hidden}
+}
+
+.scroll-progress{
+position:fixed;
+top:0;
+left:0;
+height:2px;
+width:0;
+background:var(--accent);
+z-index:9999;
+box-shadow:0 0 12px var(--accent);
+}
+
+header{
+position:sticky;
+top:0;
+z-index:99;
+transition:.4s;
+}
+
+header.scrolled{
+background:rgba(10,25,47,.75);
+backdrop-filter:blur(18px);
+}
+
+.hero>*{
+opacity:0;
+transform:translateY(35px);
+animation:hero 1s forwards;
+animation-timing-function:var(--ease);
+}
+
+.hero h1{animation-delay:.8s}
+.hero h2{animation-delay:1s}
+.hero .intro{animation-delay:1.2s}
+.hero .text-link{animation-delay:1.35s}
+.hero .green{animation-delay:.6s}
+
+@keyframes hero{
+to{
+opacity:1;
+transform:none;
+}
+}
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:.9s var(--ease);
+}
+
+.reveal.visible{
+opacity:1;
+transform:none;
+}
+
+.work,
+.item,
+.edu{
+transition:.45s var(--ease);
+transform-style:preserve-3d;
+}
+
+.work:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 25px 60px rgba(0,0,0,.25);
+}
+
+.item:hover{
+transform:translateX(12px);
+}
+
+.edu:hover{
+transform:translateY(-8px);
+}
+
+nav a{
+position:relative;
+transition:.3s;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:100%;
+height:1px;
+background:var(--accent);
+transform:scaleX(0);
+transform-origin:right;
+transition:.35s;
+}
+
+nav a:hover::after,
+nav a.active::after{
+transform:scaleX(1);
+transform-origin:left;
+}
+
+.resume,
+.email{
+position:relative;
+overflow:hidden;
+transition:.35s;
+}
+
+.resume::before,
+.email::before{
+content:"";
+position:absolute;
+inset:0;
+background:var(--accent);
+transform:translateY(100%);
+transition:.35s;
+z-index:-1;
+}
+
+.resume:hover::before,
+.email:hover::before{
+transform:none;
+}
+
+.resume:hover,
+.email:hover{
+color:#02111d;
+transform:translateY(-4px);
+}
+
+.chips span{
+transition:.3s;
+}
+
+.chips span:hover{
+transform:translateY(-5px);
+color:var(--accent);
+border-color:var(--accent);
+}
+
+.social-link{
+transition:.35s;
+}
+
+.social-link:hover{
+transform:translateY(-8px) rotate(-5deg);
+}
+
+.social-link span{
+transition:.3s;
+}
+
+.cursor-glow{
+position:fixed;
+width:280px;
+height:280px;
+border-radius:50%;
+pointer-events:none;
+background:radial-gradient(circle,rgba(100,255,218,.08),transparent 70%);
+transform:translate(-50%,-50%);
+z-index:0;
+}
+
+body::before,
+body::after{
+content:"";
+position:fixed;
+width:380px;
+height:380px;
+border-radius:50%;
+filter:blur(100px);
+opacity:.08;
+z-index:-1;
+}
+
+body::before{
+background:#64ffda;
+top:-120px;
+left:-120px;
+animation:float1 12s ease-in-out infinite alternate;
+}
+
+body::after{
+background:#4f8cff;
+right:-150px;
+bottom:-150px;
+animation:float2 14s ease-in-out infinite alternate;
+}
+
+@keyframes float1{
+to{transform:translate(120px,120px)}
+}
+
+@keyframes float2{
+to{transform:translate(-120px,-80px)}
+}
+
+::selection{
+background:#64ffda;
+color:#02111d;
+}
+</style>
+
+</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Bhabesh Kumar Lenka — Electrical Engineer | IoT & Embedded Systems Innovator">
 <title>Bhabesh Kumar Lenka | Electrical Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,10 +360,10 @@
 <section id="achievements" class="section">
   <div class="section-title"><span>04.</span> Achievements</div>
   <div class="content achievements">
-    <p><b>1st Position</b> — All Odisha Technomania Hackathon</p>
-    <p><b>1st Position</b> — Engineers Edge 2025, State-Level Technical Fest</p>
+    <p><b>Gold Medalsist</b> — All Odisha Technomania Hackathon</p>
+    <p><b>Gold Medalsist</b> — Engineers Edge 2025, State-Level Technical Fest</p>
     <p><b>Gold Medalsist</b> — IoT Innovation Programme</p>
-    <p><b>2nd Position</b> — All Odisha IoT Innovation Programe Technomania 3.0</p>
+    <p><b>Silver Medalsist</b> — All Odisha IoT Innovation Programme Technomania 3.0</p>
   </div>
 </section>
 
@@ -144,6 +402,140 @@
 const btn=document.querySelector('.menu'),nav=document.querySelector('nav');
 btn.addEventListener('click',()=>nav.classList.toggle('open'));
 document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+<script>
+const menu=document.querySelector(".menu");
+const nav=document.querySelector("nav");
+
+menu.onclick=()=>{
+nav.classList.toggle("open");
+};
+
+document.querySelectorAll("nav a").forEach(link=>{
+link.onclick=()=>nav.classList.remove("open");
+});
+
+/* Scroll Progress */
+const progress=document.querySelector(".scroll-progress");
+
+window.addEventListener("scroll",()=>{
+const h=document.documentElement.scrollHeight-window.innerHeight;
+const s=(window.scrollY/h)*100;
+progress.style.width=s+"%";
+
+if(window.scrollY>30){
+document.querySelector("header").classList.add("scrolled");
+}else{
+document.querySelector("header").classList.remove("scrolled");
+}
+});
+
+/* Reveal Animation */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+});
+},{threshold:.15});
+
+document.querySelectorAll(".section,.work,.item,.edu,.achievements p").forEach(el=>{
+el.classList.add("reveal");
+observer.observe(el);
+});
+
+/* Cursor Glow */
+const glow=document.createElement("div");
+glow.className="cursor-glow";
+document.body.appendChild(glow);
+
+let mx=0,my=0,gx=0,gy=0;
+
+window.addEventListener("mousemove",e=>{
+mx=e.clientX;
+my=e.clientY;
+});
+
+function animate(){
+gx+=(mx-gx)*0.08;
+gy+=(my-gy)*0.08;
+glow.style.left=gx+"px";
+glow.style.top=gy+"px";
+requestAnimationFrame(animate);
+}
+animate();
+
+/* 3D Project Tilt */
+document.querySelectorAll(".work").forEach(card=>{
+
+card.addEventListener("mousemove",e=>{
+
+const r=card.getBoundingClientRect();
+
+const x=e.clientX-r.left;
+const y=e.clientY-r.top;
+
+const rx=((y-r.height/2)/(r.height/2))*-4;
+const ry=((x-r.width/2)/(r.width/2))*4;
+
+card.style.transform=
+`perspective(900px)
+rotateX(${rx}deg)
+rotateY(${ry}deg)
+translateY(-10px)
+scale(1.02)`;
+
+});
+
+card.addEventListener("mouseleave",()=>{
+card.style.transform="";
+});
+
+});
+
+/* Active Navigation */
+const sections=document.querySelectorAll("main section[id]");
+
+const navLinks=document.querySelectorAll('nav a[href^="#"]');
+
+const navObserver=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+
+navLinks.forEach(l=>l.classList.remove("active"));
+
+const active=document.querySelector(
+`nav a[href="#${entry.target.id}"]`
+);
+
+if(active) active.classList.add("active");
+
+}
+});
+},{threshold:.35});
+
+sections.forEach(sec=>navObserver.observe(sec));
+
+/* Magnetic Buttons */
+document.querySelectorAll(".resume,.email,.logo").forEach(btn=>{
+
+btn.addEventListener("mousemove",e=>{
+
+const r=btn.getBoundingClientRect();
+
+const x=e.clientX-r.left-r.width/2;
+const y=e.clientY-r.top-r.height/2;
+
+btn.style.transform=`translate(${x*.12}px,${y*.12}px)`;
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+btn.style.transform="";
+});
+
+});
 </script>
 </body>
+  <div class="page-loader"><span>B</span></div>
+<div class="scroll-progress"></div>
 </html>
